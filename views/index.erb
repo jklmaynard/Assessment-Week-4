@@ -21,3 +21,16 @@
 
 
 <h3> List out or add a band </h3>
+
+<form action="/band" method="post">
+  <label for="name">Name of Band</label>
+  <input id="name" name="name" type="text">
+
+  <button type="submit" class="btn btn-sm btn-primary">Add Band</button>
+</form>
+
+<ul>
+  <% @bands.each() do |band| %>
+    <li><%= band.name() %></li>
+  <% end %>
+</ul>
