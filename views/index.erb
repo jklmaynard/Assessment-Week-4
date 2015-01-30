@@ -14,7 +14,10 @@
 
 <ul>
     <% @venues.each() do |venue| %>
-      <li><%= venue.name() %> <%= venue.location() %></li>
+      <li style="margin: 5px auto;">
+        <a href="venues/<%= venue.id()%>"><button type="submit" class="btn btn-sm btn-primary">Edit</button></a>
+        <%= venue.name() %> <%= venue.location() %>
+      </li>
     <% end %>
 
 </ul>

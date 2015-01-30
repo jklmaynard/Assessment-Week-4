@@ -22,3 +22,8 @@ post("/band") do
   @bands = Band.all()
   redirect("/")
 end
+
+get("/venues/:id") do
+  @venue = Venue.find(params["id"])
+  erb(:venues)
+end
