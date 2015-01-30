@@ -23,8 +23,18 @@ post("/band") do
   redirect("/")
 end
 
+# individual VENUES edits
+
 get("/venues/:id") do
   @venue = Venue.find(params["id"])
+  erb(:venues)
+end
+
+patch("/venues/:id") do
+  @venue = Venue.find(params["id"])
+  description = params.fetch("description")
+  attributes = {:description => description}
+  @venue.update(attributes)
   erb(:venues)
 end
 
