@@ -12,7 +12,7 @@ get("/") do
 end
 
 post("/venue") do
-  @venue = Venue.new({:name => params["name"], :location => params["location"]})
+  @venue = Venue.new({:name => params["name"], :location => params["location"] })
   @venue.save()
   if @venue.save()
     redirect("/")
@@ -20,7 +20,7 @@ post("/venue") do
     erb(:error)
   end
   @venues = Venue.all()
-  redirect("/")
+  erb(:index)
 end
 
 post("/band") do
