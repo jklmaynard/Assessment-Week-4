@@ -1,0 +1,9 @@
+<h3>I'm sorry, there's been something done wrong.</h3>
+
+<ul>
+  <% @venue.errors().full_messages().each do |message| %>
+  <li><%= message %></li>
+  <% end %>
+</ul>
+
+<h5><a href="/">Return to main page and try again</a></h5>

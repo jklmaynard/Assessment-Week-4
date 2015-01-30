@@ -12,7 +12,13 @@ get("/") do
 end
 
 post("/venue") do
-  venue = Venue.create({ :name => params["name"], :location => params["location"] })
+  @venue = Venue.new({:name => params["name"], :location => params["location"]})
+  @venue.save()
+  if @venue.save()
+    redirect("/")
+  else
+    erb(:error)
+  end
   @venues = Venue.all()
   redirect("/")
 end
