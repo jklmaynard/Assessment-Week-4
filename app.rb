@@ -66,3 +66,9 @@ patch("/bands/:id") do
   @venues = Venue.all()
   erb(:bands)
 end
+
+delete("/bands/:id") do
+  @band = Band.find(params.fetch("id"))
+  @band.destroy
+  redirect("/")
+end

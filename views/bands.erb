@@ -28,4 +28,10 @@
 <p>There are no venues yet!</p>
 <% end %>
 
+<form action="/bands/<%= @band.id() %>" method="post">
+  <input name="_method" type="hidden" value="delete">
+
+  <button type="submit" class="btn btn-sm btn-danger">Delete Band</button>
+</form>
+
 <a href="/">Back to Home Page</a>
