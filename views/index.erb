@@ -4,10 +4,20 @@
 
 <form action="/venue" method="post">
   <label for="name">Name of Venue</label>
+  <input id="name" name="name" type="text">
 
+  <label for="location">Where is this Venue?</label>
+  <input id="location" name="location" type="text">
+
+  <button type="submit" class="btn btn-sm btn-primary">Add Venue</button>
 </form>
 
+<ul>
+    <% @venues.each() do |venue| %>
+      <li><%= venue.name() %> <%= venue.location() %></li>
+    <% end %>
 
+</ul>
 
 
 <h3> List out or add a band </h3>
