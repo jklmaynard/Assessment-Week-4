@@ -8,4 +8,9 @@ describe(Band) do
     expect(band.save()).to eq(false)
   end
 
+  it("capitalizes each word of the band") do
+    band = Band.create({ :name => "the band" })
+    expect(band.name()).to eq("The Band")
+  end
+
 end
