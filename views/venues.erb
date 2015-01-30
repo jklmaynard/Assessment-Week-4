@@ -1,1 +1,13 @@
-<h1>Edit <%= @venue.name() %> </h1>
+<h3>Edit <%= @venue.name() %> </h3>
+<br>
+
+<p> <%= @venue.location() %> </p>
+
+
+<form action="/venues/<%= @venue.id() %>" method="post">
+  <input name="_method" type="hidden" value="delete">
+
+  <button type="submit" class=" btn btn-sm btn-danger">Delete Venue</button>
+</form>
+
+<a href="/">Back to Home Page</a>

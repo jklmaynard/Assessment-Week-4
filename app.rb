@@ -27,3 +27,9 @@ get("/venues/:id") do
   @venue = Venue.find(params["id"])
   erb(:venues)
 end
+
+delete("/venues/:id") do
+  @venue = Venue.find(params["id"])
+  @venue.destroy
+  redirect("/")
+end
