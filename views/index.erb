@@ -1,6 +1,6 @@
 <h1> [Something Here Later On] </h1>
 
-<h3> List out or add a venue </h3>
+<h3> Venues </h3>
 
 <form action="/venue" method="post">
   <label for="name">Name of Venue</label>
@@ -13,17 +13,16 @@
 </form>
 
 <ul>
-    <% @venues.each() do |venue| %>
-      <li style="margin: 5px auto;">
-        <a href="venues/<%= venue.id()%>"><button type="submit" class="btn btn-sm btn-primary">Edit</button></a>
-        <%= venue.name() %> <%= venue.location() %>
-      </li>
-    <% end %>
-
+  <% @venues.each() do |venue| %>
+    <li style="margin: 5px auto;">
+      <a href="venues/<%= venue.id()%>"><button type="submit" class="btn btn-sm btn-primary">Edit</button></a>
+      <%= venue.name() %> <%= venue.location() %>
+    </li>
+  <% end %>
 </ul>
 
 
-<h3> List out or add a band </h3>
+<h3> Bands </h3>
 
 <form action="/band" method="post">
   <label for="name">Name of Band</label>
@@ -34,6 +33,9 @@
 
 <ul>
   <% @bands.each() do |band| %>
-    <li><%= band.name() %></li>
+    <li style="margin: 5px auto">
+      <a href="bands/<%= band.id() %>"><button type="submit" class="btn btn-sm btn-primary">Add Venues</button></a>
+      <%= band.name() %>
+    </li>
   <% end %>
 </ul>

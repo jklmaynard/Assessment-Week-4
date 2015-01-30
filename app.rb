@@ -3,7 +3,7 @@ Bundler.require(:default)
 
 Dir[File.dirname(__FILE__) + '/lib/*.rb'].each { |file| require file }
 
-# INDEX.erb CRUD
+# HOMEPAGE routes
 
 get("/") do
   @venues = Venue.all()
@@ -23,7 +23,7 @@ post("/band") do
   redirect("/")
 end
 
-# individual VENUES edits
+# individual VENUES routes
 
 get("/venues/:id") do
   @venue = Venue.find(params["id"])
@@ -42,4 +42,16 @@ delete("/venues/:id") do
   @venue = Venue.find(params["id"])
   @venue.destroy
   redirect("/")
+end
+
+# individual BANDS routes
+
+get("/bands/:id") do
+  @band = Band.find(params["id"])
+  @venues = Venue.all()
+  erb(:bands)
+end
+
+patch("/bands/:id") do
+  
 end

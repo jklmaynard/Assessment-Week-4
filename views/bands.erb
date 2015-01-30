@@ -1,0 +1,31 @@
+<h1> <%= @band.name() %></h1>
+
+<h2> What venues would you like to visit? </h2>
+
+<% @venues.each() do |venue| %>
+<form action ="/bands/<%= @band.id() %>" method="post">
+<input type="hidden" name="_method" value="patch">
+  <div class="checkbox">
+    <label>
+      <input type="checkbox" name="venues_ids[]" value="<%= venue.id() %>"> <%= venue.name() %>
+    </label>
+  </div>
+<% end %>
+
+<button type="submit">Add venue</button>
+</form>
+
+<% if @band.venues().any?() %>
+<h3> Here is a list of <%= @band.name() %>'s venues </h3>
+
+<ul>
+  <% @band.venues().each() do |venue| %>
+    <li><%= venue.name() %></li>
+  <% end %>
+</ul>
+
+<% else %>
+<p>There are no venues yet!</p>
+<% end %>
+
+<a href="/">Back to Home Page</a>
